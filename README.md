@@ -16,6 +16,8 @@ To install the plugin, download the repository. Then go to Preferences > Addons 
 
 ## Usage
 To import a BambuStuduo GCode file to Blender, simply go to File > Import and select the Multicolour GCode option. In the new file browser window, find and select the .gcode file you would ike to import, then click 'Import Gcode'
+Don't forget switch to Materials or Render view to see the colours.
+
 
 
 The importer also creates simulated head movement that can be tied to an animation of a real printer - see youtube demo for an example.
