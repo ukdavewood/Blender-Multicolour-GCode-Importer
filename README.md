@@ -1,7 +1,7 @@
 # MultiColour - Blender-GCode-Importer
 
-![A 3D render of a low-poly Thinker statue](/images/low_poly_thinker.png)
-<sup>*Lowest Poly The Thinker* model by [LXO on Printables.com](https://www.printables.com/model/1165-lowest-poly-the-thinker)</sup>
+![Youtube Thumbnail](/images/youtube thumbnail.png)
+
 
 ## About
 
