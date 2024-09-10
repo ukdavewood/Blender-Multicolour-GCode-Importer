@@ -17,15 +17,19 @@ To install the plugin, download the repository. Then go to Preferences > Addons 
 ## Usage
 To import a GCode file to Blender, simply go to File > Import and select the Multicolour GCode option. In the new file browser window, find and select the .gcode file you would ike to import, then click 'Import Gcode'
 
+The importer also creates simulated head movement that can be tied to an animation of a real printer - see youtube demo for an example.
+The importer also has the ability to add time values to the key frames - so that for example a clock can be animated alongside the timelapse.
+
+
 ## FAQ
 **How long do models take to import?**<br>
 This depends heavily on the computer you are running on, but imports can take anywhere from just a couple seconds to several minutes depening on the size and complexity of the model that is being imported.
 
-**How do I give the imported paths thickness?**<br>
-These options can be found in the Properties area (bottom right panel in the default layout) when a path is selected. Under the 'Object Data Properties' tab there is a 'Geometry' dropdown. Under this dropdown, the two most useful values are 'Extrusion' and 'Bevel'. Adjust these values until the desired look of the model has been reached.
+
 
 ## Planned Features
-
+1. Improved more realistic head movement
+2. 
 
 ## Troubleshooting
 If you are experiencing issues with the plugin, feel free to open an issue and I'll respond when i can.
