@@ -36,4 +36,4 @@ If you are experiencing issues with the plugin, feel free to open an issue and I
 
 
 Like kmnunley's work?
-[Buy me a coffee!](https://www.buymeacoffee.com/kmnunley) :coffee:
+[Buy him a coffee!](https://www.buymeacoffee.com/kmnunley) :coffee:
