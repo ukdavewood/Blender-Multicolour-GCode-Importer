@@ -8,7 +8,7 @@
 MultiColour Blender GCode Importer is substantial enhancement to kmnunleys simple plug-in that translates printer GCode into Bezier curve paths in Blender, and creates a simulated multicolour timelapse of the print.
 
 ## Example timelapses
-![Timelapse Demo](https://youtu.be/28RHWP2CYZw?si=LybDFLo7hO7BbCez)
+[Timelapse Demo](https://youtu.be/28RHWP2CYZw?si=LybDFLo7hO7BbCez)
 
 
 ## Installation
