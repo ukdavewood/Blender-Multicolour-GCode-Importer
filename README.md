@@ -1,6 +1,6 @@
 # MultiColour - Blender-GCode-Importer
 
-![Youtube Thumbnail](/images/Youtube_Thumbnail.png)
+![Youtube Thumbnail](/images/YoutubeThumbnail.png)
 
 
 ## About
