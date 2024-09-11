@@ -45,6 +45,9 @@ Info about the Addin will also be tracked here
 https://forum.bambulab.com/t/blender-multicolour-bambustudio-gcode-importer/97948 
 
 
+## Credits
+
+This Importer is based on an plugin created ny Kevin Nunley.
 
 Like kmnunley's work?
 [Buy him a coffee!](https://www.buymeacoffee.com/kmnunley) :coffee:
