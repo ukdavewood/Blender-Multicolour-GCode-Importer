@@ -25,6 +25,7 @@ The importer also creates simulated head movement that can be tied to an animati
 
 The importer also has the ability to add time values to the key frames - so that for example a clock can be animated alongside the timelapse.
 
+See this video for a basic demo of the use of the plugin   https://youtu.be/4Nely6-mx40
 
 ## FAQ
 **How long do models take to import?**<br>
@@ -40,6 +41,9 @@ This depends heavily on the computer you are running on, but imports can take an
 
 ## Troubleshooting
 If you are experiencing issues with the plugin, feel free to open an issue and I'll respond when i can.
+Info about the Addin will also be tracked here
+https://forum.bambulab.com/t/blender-multicolour-bambustudio-gcode-importer/97948 
+
 
 
 Like kmnunley's work?
