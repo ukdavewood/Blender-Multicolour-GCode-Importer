@@ -38,6 +38,7 @@ This depends heavily on the computer you are running on, but imports can take an
 2. Improved visualisation of purge waste
 3. Provide some parameters to control the way the timelapses are created.
 4. handle Arc movements
+5. gcode.3mf imports
 
 ## Troubleshooting
 If you are experiencing issues with the plugin, feel free to open an issue and I'll respond when i can.
