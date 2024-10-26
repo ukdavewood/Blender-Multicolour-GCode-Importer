@@ -67,7 +67,7 @@ def arcPoints(command,i,j,fromX,fromY,toX,toY,Z,point_data):
         # print(segX,segY,)
 
 
-def create_paths(gcode_lines):
+def create_paths(gcode_lines,detailed_start,detailed_end,max_entry):
     # Initialize the toolhead position and extruder temperature
     toolhead_pos = (0, 0, 0)
 
@@ -137,9 +137,9 @@ def create_paths(gcode_lines):
     layer = 0
     prev_layer = 0
     entry_count = 0
-    max_entry = 20
-    detailed_start = 1
-    detailed_end  = 2
+    # max_entry = 20
+    # detailed_start = 1
+    # detailed_end  = 2
 
     scale = 0.01
     radius = 0.2
@@ -159,7 +159,11 @@ def create_paths(gcode_lines):
     for line in gcode_lines:
         line_no += 1
         
-                
+        if line.startswith("; nozzle_diameter ="):
+            diameter = line.split("=")[1].strip()
+            radius = float(diameter)/2
+            print("radius",radius)
+
         if line.startswith("; filament_colour = "):
             colours = line[20:].split(';')
             #print(colours)
@@ -261,11 +265,14 @@ def create_paths(gcode_lines):
 
                             for index, point in enumerate(point_data):
                                 if index == 0:
-
-                                        curve_spline.bezier_points[0].co = point
+                                    curve_spline.bezier_points[0].co = point
+                                    curve_spline.bezier_points[0].handle_left = point
+                                    curve_spline.bezier_points[0].handle_right = point
                                 else:
                                     curve_spline.bezier_points.add(1)
                                     curve_spline.bezier_points[-1].co = point
+                                    curve_spline.bezier_points[-1].handle_left = point
+                                    curve_spline.bezier_points[-1].handle_right = point
 
                     else:  # If Curve doesn't exist for tool on layer
  
@@ -286,11 +293,14 @@ def create_paths(gcode_lines):
                         else:
                             for index, point in enumerate(point_data):
                                 if index == 0:
-
                                     curve_spline.bezier_points[0].co = point
+                                    curve_spline.bezier_points[0].handle_left = point
+                                    curve_spline.bezier_points[0].handle_right = point
                                 else:
                                     curve_spline.bezier_points.add(1)
                                     curve_spline.bezier_points[-1].co = point
+                                    curve_spline.bezier_points[-1].handle_left = point
+                                    curve_spline.bezier_points[-1].handle_right = point
 
                         curve_object = bpy.data.objects.new("Layer"+str(layer)+"T"+str(tool_id), curve_data)
                         curve_object.data.bevel_depth = radius
@@ -445,12 +455,12 @@ def create_paths(gcode_lines):
 
 
 
-def import_gcode3mf(f):
+def import_gcode3mf(f,detail_start,detail_end,max_entry):
 
     gcode_lines = f.readlines()
 
     # Create the geometry
-    create_paths(gcode_lines)
+    create_paths(gcode_lines,detail_start,detail_end,max_entry)
 
 # Define the operator class
 class ImportGCodeOperator(Operator, ImportHelper):
@@ -512,6 +522,9 @@ class WM_OT_myOp(bpy.types.Operator):
 
     plate_max: bpy.props.IntProperty(name= "Max:", default= 1,options = {'HIDDEN'})
     plate : bpy.props.IntProperty(name= "Plate:", default= 1, min=1, max=50)
+    detail_start : bpy.props.IntProperty(name= "detail start", default= 1, min=1, max=100)
+    detail_end : bpy.props.IntProperty(name= "detail end", default= 5, min=1, max=100)
+    max_entry : bpy.props.IntProperty(name= "max_entry", default= 100, min=1, max=10000)
     
     
     
@@ -519,6 +532,8 @@ class WM_OT_myOp(bpy.types.Operator):
         
         s = self.plate
         m = self.plate_max
+
+        print("self.detail_start,self.detail_end,self.max_entry",self.detail_start,self.detail_end,self.max_entry)
         
         if s > m:
             self.report({'ERROR'},"plate mumber out of range")
@@ -527,14 +542,16 @@ class WM_OT_myOp(bpy.types.Operator):
         else:
 
             name = "Metadata/plate_" + str(self.plate) + '.gcode'
-            print(name)        
+                
 
             with ZipFile(self.file, "r") as f3mf:
                 
                         
                 with io.TextIOWrapper(f3mf.open(name), encoding="utf-8") as f:
 
-                    import_gcode3mf(f)
+                    print()
+
+                    import_gcode3mf(f,self.detail_start,self.detail_end,self.max_entry)
                 
                 
             return {'FINISHED'}
