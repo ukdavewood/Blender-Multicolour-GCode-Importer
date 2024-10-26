@@ -36,7 +36,7 @@ This depends heavily on the computer you are running on, but imports can take an
 ## Planned Features
 1. Improved more realistic head movement to match real timelapses
 2. Improved visualisation of purge waste
-3. Provide some parameters to control the way the timelapses are created.
+3. Provide some parameters to control the way the timelapses are created. - currently in Gcode.3mf version
 4. handle Arc movements  - currently in Gcode.3mf version
 5. gcode.3mf imports - done 26/10/24
 
